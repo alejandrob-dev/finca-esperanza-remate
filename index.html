@@ -11,8 +11,37 @@
 <meta property="og:image" content="https://alejandrob-dev.github.io/finca-esperanza-remate/satellite.jpg">
 <meta property="og:url" content="https://alejandrob-dev.github.io/finca-esperanza-remate/">
 <meta name="twitter:card" content="summary_large_image">
-<!-- METRICAS GoatCounter: reemplaza CODIGO por el code de tu cuenta gratis en goatcounter.com -->
-<script data-goatcounter="https://CODIGO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- ===== TELEMETRÍA — pega tus IDs aquí (sin esto no rastrea) ===== -->
+<script>
+  window.LEADIDS = {
+    ga4:       "G-XXXXXXXXXX",    // Google Analytics 4 (Measurement ID)
+    googleAds: "AW-XXXXXXXXXX",   // Google Ads (Conversion ID)
+    googleLbl: "XXXXXXXXXXX",     // Google Ads (etiqueta de conversión)
+    metaPixel: "XXXXXXXXXXXXXXX"  // Meta Pixel (ID)
+  };
+  (function(){
+    var I=window.LEADIDS, ok=function(v){return v && v.indexOf('XXXX')<0;};
+    if(ok(I.ga4)||ok(I.googleAds)){
+      var g=ok(I.ga4)?I.ga4:I.googleAds, s=document.createElement('script');
+      s.async=1; s.src='https://www.googletagmanager.com/gtag/js?id='+g; document.head.appendChild(s);
+      window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments);};
+      gtag('js',new Date());
+      if(ok(I.ga4)) gtag('config',I.ga4);
+      if(ok(I.googleAds)) gtag('config',I.googleAds);
+    }
+    if(ok(I.metaPixel)){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init',I.metaPixel); fbq('track','PageView');
+    }
+    window.trackLead=function(canal){try{
+      if(ok(I.metaPixel)) fbq('track','Lead',{content_name:canal});
+      if(ok(I.googleAds)) gtag('event','conversion',{send_to:I.googleAds+'/'+I.googleLbl});
+      if(ok(I.ga4)) gtag('event','contacto',{metodo:canal});
+    }catch(e){}};
+  })();
+</script>
 <style>
   :root{ --green:#14492f; --green2:#1f7a4d; --gold:#8a6d1f; --ink:#1c2b3a; --soft:#5a6b60; --line:#e4ece8; }
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -136,8 +165,8 @@
     <div class="who">Dra. Blanca Emma Torres Pinilla</div>
     <div class="role">Abogada parte interesada</div>
     <div class="btns">
-      <a class="btn wa" href="https://wa.me/573106087724?text=Hola%2C%20me%20interesa%20el%20remate%20de%20la%20finca%20en%20Facatativ%C3%A1%20(Lote%20La%20Esperanza)." target="_blank" rel="noopener">💬 Escribir por WhatsApp</a>
-      <a class="btn tel" href="tel:+573106087724">📞 Llamar 310 608 7724</a>
+      <a class="btn wa" href="https://wa.me/573106087724?text=Hola%2C%20me%20interesa%20el%20remate%20de%20la%20finca%20en%20Facatativ%C3%A1%20(Lote%20La%20Esperanza)." target="_blank" rel="noopener" onclick="trackLead&&trackLead('whatsapp')">💬 Escribir por WhatsApp</a>
+      <a class="btn tel" href="tel:+573106087724" onclick="trackLead&&trackLead('llamada')">📞 Llamar 310 608 7724</a>
     </div>
   </section>
 
