@@ -72,7 +72,8 @@
   ul.feat li::before{ content:"✓"; position:absolute; left:0; top:0; color:var(--green2); font-weight:800; }
   ul.feat b{ color:var(--green); }
 
-  .map-embed{ width:100%; height:380px; border:0; border-radius:12px; }
+  .map-wrap{ height:380px; overflow:hidden; border-radius:12px; }
+  .map-embed{ width:100%; height:452px; border:0; margin-top:-72px; display:block; }
   .map-btn{ display:inline-block; margin-top:12px; font-size:13.5px; color:var(--green2); font-weight:700; text-decoration:none; }
 
   .meta{ display:grid; gap:9px; }
@@ -128,7 +129,7 @@
 
   <section>
     <h2>Ubicación</h2>
-    <iframe class="map-embed" src="https://www.google.com/maps/d/embed?mid=1mY1Fw1aUm72skcx91NWEgkTFMkcrHTM&ll=4.838275,-74.39391&z=17" loading="lazy"></iframe>
+    <div class="map-wrap"><iframe class="map-embed" src="https://www.google.com/maps/d/embed?mid=1mY1Fw1aUm72skcx91NWEgkTFMkcrHTM&ll=4.838275,-74.39391&z=17" loading="lazy"></iframe></div>
     <a class="map-btn" href="https://www.google.com/maps/d/viewer?mid=1mY1Fw1aUm72skcx91NWEgkTFMkcrHTM&ll=4.838275,-74.39391&z=18" target="_blank" rel="noopener">↗ Abrir el mapa con el lindero en Google Maps</a>
   </section>
 
